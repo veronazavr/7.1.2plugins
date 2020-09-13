@@ -51,8 +51,32 @@
                     <goal>report</goal>
                 </goals>
             </execution>
+            <execution>
+                <id>check-test</id>
+                <phase>verify</phase>
+                <goals>
+                    <goal>check</goal>
+                </goals>
+            </execution>
         </executions>
-    </plugin>
+        <configuration>
+            <rules>
+                <element>BUNDLE</element>
+                <limits>
+                    <limit>
+                        <counter>INSTRUCTION</counter>
+                        <value>COVEREDRATIO</value>
+                        <minimum>0.80</minimum>
+                    </limit>
+                    <limit>
+                        <counter>CLASS</counter>
+                        <value>MISSEDCOUNT</value>
+                        <maximum>0</maximum>
+                    </limit>
+                </limits>
+            </rules>
+        </configuration>
+        </plugin>
     </plugins>
     </build>
 </project>
